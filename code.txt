@@ -1,0 +1,88 @@
+#%RAML 1.0
+title: calculator1
+
+version: v1
+protocols:
+  - http
+  - https
+
+/addition:
+ get:
+    queryParameters:
+     number1 : 
+      type : integer
+      required: true
+      example: 5
+        
+     number2 :
+        type : integer
+        required: true
+        example: 3
+          
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "result" : "the output is 9"
+           }
+      400:
+        body:
+          application/json:
+            example:
+              {"message": "connetion error"}
+
+   
+
+/multiplication:
+  get:
+    queryParameters:
+     number1 : 
+      type : integer
+      required: true
+      minimum: 1
+      maximum: 5
+      example: 3
+      
+        
+     number2 :
+        type : integer
+        required: false
+        minimum: 3
+        maximum: 4
+        example: 3
+          
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "result" : "the output is correct-9"
+              }
+
+/division:
+  get:
+    queryParameters:
+     number1 : 
+      type : integer
+      required: true
+      example: 10
+        
+     number2 :
+        type : integer
+        required: true
+        example: 5
+          
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "result" : "the output is correct"
+              
